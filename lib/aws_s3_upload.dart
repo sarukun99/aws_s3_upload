@@ -51,13 +51,8 @@ class AwsS3 {
 
     /// Additional metadata to be attached to the upload
     Map<String, String>? metadata,
+    required String endpoint,
   }) async {
-    var httpStr = 'http';
-    if (useSSL) {
-      httpStr += 's';
-    }
-    final endpoint = '$httpStr://$bucket.s3.$region.amazonaws.com';
-
     String? uploadKey;
 
     if (key != null) {
